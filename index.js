@@ -172,7 +172,6 @@ var EditorDemo = function (_Component) {
   return EditorDemo;
 }(Component);
 
-export default EditorDemo;
 import _Object$assign from 'babel-runtime/core-js/object/assign';
 import _defineProperty from 'babel-runtime/helpers/defineProperty';
 import _extends from 'babel-runtime/helpers/extends';
@@ -476,7 +475,6 @@ var RichTextEditor = function (_Component) {
   return RichTextEditor;
 }(Component);
 
-export default RichTextEditor;
 
 
 function defaultBlockStyleFn(block) {
@@ -622,7 +620,6 @@ var SimpleRichTextEditor = function (_Component) {
   return SimpleRichTextEditor;
 }(Component);
 
-export default SimpleRichTextEditor;
 var _global = global,
     describe = _global.describe,
     it = _global.it;
@@ -1220,7 +1217,6 @@ var EditorToolbar = function (_Component) {
   return EditorToolbar;
 }(Component);
 
-export default EditorToolbar;
 export var INLINE_STYLE_BUTTONS = [{ label: 'Bold', style: 'BOLD' }, { label: 'Italic', style: 'ITALIC' }, { label: 'Strikethrough', style: 'STRIKETHROUGH' }, { label: 'Monospace', style: 'CODE' }, { label: 'Underline', style: 'UNDERLINE' }];
 
 export var BLOCK_TYPE_DROPDOWN = [{ label: 'Normal', style: 'unstyled' }, { label: 'Heading Large', style: 'header-one' }, { label: 'Heading Medium', style: 'header-two' }, { label: 'Heading Small', style: 'header-three' }, { label: 'Code Block', style: 'code-block' }];
@@ -1233,7 +1229,6 @@ var EditorToolbarConfig = {
   BLOCK_TYPE_BUTTONS: BLOCK_TYPE_BUTTONS
 };
 
-export default EditorToolbarConfig;
 import _JSON$stringify from 'babel-runtime/core-js/json/stringify';
 import _defineProperty from 'babel-runtime/helpers/defineProperty';
 import _classCallCheck from 'babel-runtime/helpers/classCallCheck';
@@ -1302,7 +1297,6 @@ var EditorValue = function () {
   return EditorValue;
 }();
 
-export default EditorValue;
 
 
 function _toString(editorState, format, options) {
@@ -1361,7 +1355,6 @@ function findImageEntities(contentBlock, callback, contentState) {
   }, callback);
 }
 
-export default {
   strategy: findImageEntities,
   component: ImageSpan
 };
@@ -1390,7 +1383,6 @@ function findLinkEntities(contentBlock, callback, contentState) {
   }, callback);
 }
 
-export default {
   strategy: findLinkEntities,
   component: Link
 };
@@ -1446,7 +1438,6 @@ var StyleButton = function (_Component) {
   return StyleButton;
 }(Component);
 
-export default StyleButton;
 var _global = global,
     describe = _global.describe,
     it = _global.it;
@@ -1469,7 +1460,6 @@ describe('composite', function () {
 });
 import { EditorState } from 'draft-js';
 
-export default function changeBlockDepth(editorState, blockKey, newDepth) {
   var content = editorState.getCurrentContent();
   var block = content.getBlockForKey(blockKey);
   var depth = block.getDepth();
@@ -1484,7 +1474,6 @@ export default function changeBlockDepth(editorState, blockKey, newDepth) {
 }
 import { EditorState } from 'draft-js';
 
-export default function changeBlockType(editorState, blockKey, newType) {
   var content = editorState.getCurrentContent();
   var block = content.getBlockForKey(blockKey);
   var type = block.getType();
@@ -1499,7 +1488,6 @@ export default function changeBlockType(editorState, blockKey, newType) {
 }
 import { CharacterMetadata, EditorState } from 'draft-js';
 
-export default function clearEntityForRange(editorState, blockKey, startOffset, endOffset) {
   var contentState = editorState.getCurrentContent();
   var blockMap = contentState.getBlockMap();
   var block = blockMap.get(blockKey);
@@ -1528,11 +1516,9 @@ function composite(defaultFunc, customFunc) {
   };
 }
 
-export default composite;
 import { EditorState } from 'draft-js';
 import { OrderedMap } from 'immutable';
 
-export default function getBlocksInSelection(editorState) {
   var contentState = editorState.getCurrentContent();
   var blockMap = contentState.getBlockMap();
   var selection = editorState.getSelection();
@@ -1574,7 +1560,6 @@ function getEntityAtOffset(block, offset) {
   };
 }
 
-export default function getEntityAtCursor(editorState) {
   var selection = editorState.getSelection();
 
   var startKey = selection.getStartKey();
@@ -1609,7 +1594,6 @@ export default function getEntityAtCursor(editorState) {
 }
 import { ContentBlock, EditorState, genKey } from 'draft-js';
 
-export default function insertBlockAfter(editorState, blockKey, newType) {
   var content = editorState.getCurrentContent();
   var blockMap = content.getBlockMap();
   var block = blockMap.get(blockKey);
@@ -1644,7 +1628,6 @@ export default function insertBlockAfter(editorState, blockKey, newType) {
 }
 import { BLOCK_TYPE } from 'draft-js-utils';
 
-export default function isListItem(block) {
   var blockType = block.getType();
   return blockType === BLOCK_TYPE.UNORDERED_LIST_ITEM || blockType === BLOCK_TYPE.ORDERED_LIST_ITEM;
 }
@@ -1714,14 +1697,12 @@ var Button = function (_Component) {
   return Button;
 }(Component);
 
-export default Button;
 import _extends from 'babel-runtime/helpers/extends';
 import React from 'react';
 import cx from 'classnames';
 
 import styles from './ButtonGroup.css';
 
-export default function ButtonGroup(props) {
   var className = cx(props.className, styles.root);
   return React.createElement('div', _extends({}, props, { className: className }));
 }
@@ -1731,7 +1712,6 @@ import cx from 'classnames';
 
 import styles from './ButtonWrap.css';
 
-export default function ButtonWrap(props) {
   var className = cx(props.className, styles.root);
   return React.createElement('div', _extends({}, props, { className: className }));
 }
@@ -1820,7 +1800,6 @@ var Dropdown = function (_Component) {
   return Dropdown;
 }(Component);
 
-export default Dropdown;
 import _extends from 'babel-runtime/helpers/extends';
 import _defineProperty from 'babel-runtime/helpers/defineProperty';
 import _objectWithoutProperties from 'babel-runtime/helpers/objectWithoutProperties';
@@ -1876,7 +1855,6 @@ var IconButton = function (_Component) {
   return IconButton;
 }(Component);
 
-export default IconButton;
 import _Object$getPrototypeOf from 'babel-runtime/core-js/object/get-prototype-of';
 import _classCallCheck from 'babel-runtime/helpers/classCallCheck';
 import _createClass from 'babel-runtime/helpers/createClass';
@@ -1991,7 +1969,6 @@ var ImageSpan = function (_Component) {
   return ImageSpan;
 }(Component);
 
-export default ImageSpan;
 import _Object$getPrototypeOf from 'babel-runtime/core-js/object/get-prototype-of';
 import _classCallCheck from 'babel-runtime/helpers/classCallCheck';
 import _createClass from 'babel-runtime/helpers/createClass';
@@ -2128,7 +2105,6 @@ var InputPopover = function (_Component) {
   return InputPopover;
 }(Component);
 
-export default InputPopover;
 import _extends from 'babel-runtime/helpers/extends';
 import _objectWithoutProperties from 'babel-runtime/helpers/objectWithoutProperties';
 import _Object$getPrototypeOf from 'babel-runtime/core-js/object/get-prototype-of';
@@ -2209,4 +2185,3 @@ var PopoverIconButton = function (_Component) {
   return PopoverIconButton;
 }(Component);
 
-export default PopoverIconButton;
