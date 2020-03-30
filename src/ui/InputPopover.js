@@ -1,5 +1,5 @@
 /* @flow */
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import IconButton from './IconButton';
 import ButtonGroup from './ButtonGroup';
@@ -7,21 +7,15 @@ import autobind from 'class-autobind';
 import cx from 'classnames';
 
 import styles from './InputPopover.css';
-
-type Props = {
-  className?: string;
-  defaultValue?: string;
-  onCancel: () => any;
-  onSubmit: (value: string) => any;
-};
+import { Button } from '../RichTextEditor';
 
 export default class InputPopover extends Component {
-  props: Props;
-  _inputRef: ?Object;
-
-  constructor() {
-    super(...arguments);
+  constructor(props) {
+    super(props);
     autobind(this);
+    this.state = {
+      value: this.props.defaultValue || ''
+    };
   }
 
   componentDidMount() {
@@ -38,19 +32,31 @@ export default class InputPopover extends Component {
   }
 
   render() {
-    let {props} = this;
+    let { props } = this;
     let className = cx(props.className, styles.root);
     return (
       <div className={className}>
         <div className={styles.inner}>
           <input
-            ref={this._setInputRef}
             defaultValue={props.defaultValue}
+            value={this.state.value}
             type="text"
             placeholder="https://example.com/"
             className={styles.input}
             onKeyPress={this._onInputKeyPress}
+            onChange={e => {
+              this.setState({ value: e.target.value });
+            }}
           />
+          <Button
+            style={{ marginLeft: '4px', marginRight: '0' }}
+            onClick={() => {
+              this.setState({ value: 'articleUrl' });
+              this._onSubmit('articleUrl');
+            }}
+          >
+            Article Url
+          </Button>
           <ButtonGroup className={styles.buttonGroup}>
             <IconButton
               label="Cancel"
@@ -60,7 +66,9 @@ export default class InputPopover extends Component {
             <IconButton
               label="Submit"
               iconName="accept"
-              onClick={this._onSubmit}
+              onClick={() => {
+                this._onSubmit(this.state.value);
+              }}
             />
           </ButtonGroup>
         </div>
@@ -68,11 +76,7 @@ export default class InputPopover extends Component {
     );
   }
 
-  _setInputRef(inputElement: Object) {
-    this._inputRef = inputElement;
-  }
-
-  _onInputKeyPress(event: Object) {
+  _onInputKeyPress(event) {
     if (event.which === 13) {
       // Avoid submitting a <form> somewhere up the element tree.
       event.preventDefault();
@@ -80,12 +84,12 @@ export default class InputPopover extends Component {
     }
   }
 
-  _onSubmit() {
-    let value = this._inputRef ? this._inputRef.value : '';
+  _onSubmit(value) {
+    // let value = this._inputRef ? this._inputRef.value : '';
     this.props.onSubmit(value);
   }
 
-  _onDocumentClick(event: Object) {
+  _onDocumentClick(event) {
     let rootNode = ReactDOM.findDOMNode(this);
     if (!rootNode.contains(event.target)) {
       // Here we pass the event so the parent can manage focus.
@@ -93,7 +97,7 @@ export default class InputPopover extends Component {
     }
   }
 
-  _onDocumentKeydown(event: Object) {
+  _onDocumentKeydown(event) {
     if (event.keyCode === 27) {
       this.props.onCancel();
     }

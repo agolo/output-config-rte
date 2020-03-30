@@ -58,12 +58,12 @@ a {
 }
 
 .editor-demo {
-  width: 560px;
+  width: 80%;
   margin: 10px auto;
 }
 
 .editor-demo .row {
-  margin: 10px 0;
+  margin: 10px;
 }
 
 .editor-demo .radio-item {

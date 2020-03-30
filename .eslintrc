@@ -20,9 +20,6 @@
     "no-cond-assign": 1,                  // disallow assignment in conditional expressions
     "no-console": 0,                      // disallow use of console: should use nuclide-logging instead
     "no-constant-condition": 1,           // disallow use of constant expressions in conditions
-    "comma-dangle": [                     // disallow trailing commas in object and array literals
-      1, "always-multiline"
-    ],
     "no-control-regex": 1,                // disallow control characters in regular expressions
     "no-debugger": 1,                     // disallow use of debugger
     "no-dupe-keys": 1,                    // disallow duplicate keys when creating object literals
@@ -120,14 +117,11 @@
     // React (eslint-plugin-react)
 
     "jsx-quotes": [1, "prefer-double"],   // <Foo bar="x" /> not <Foo bar='x' />
-    "react/jsx-curly-spacing": [          // Enforce or disallow spaces inside of curly braces in JSX attributes
-      1, "never"
-    ],
     "react/jsx-no-undef": 1,              // Disallow undeclared variables in JSX
     "react/jsx-uses-react": 1,            // Prevent React to be incorrectly marked as unused
     "react/jsx-uses-vars": 1,             // Prevent variables used in JSX to be incorrectly marked as unused
     "react/no-unknown-property": 1,       // Prevent usage of unknown DOM property
-    "react/prop-types": 1,                // Prevent missing props validation in a React component definition
+    // "react/prop-types": 1,                // Prevent missing props validation in a React component definition
     "react/react-in-jsx-scope": 2,        // Prevent missing React when using JSX
 
     // Stylistic (these rules are purely matters of style and are quite subjective)
@@ -172,12 +166,6 @@
     "space-before-function-paren": [      // disallow a space before function parenthesis
       1, "never"
     ],
-    "object-curly-spacing": [             // disallow spaces inside of curly braces in object literals
-      1, "never"
-    ],
-    "array-bracket-spacing": [            // disallow spaces inside of curly braces in array literals
-      1, "never"
-    ],
     "space-in-parens": 1,                 // require or disallow spaces inside parentheses
     "space-infix-ops": 1,                 // require spaces around operators
     "space-unary-ops": 1,                 // require a space around word operators such as typeof
@@ -186,7 +174,6 @@
     "wrap-regex": 0,                      // require regex literals to be wrapped in parentheses
 
     // ECMAScript 6/7 (2015 and above)
-    "arrow-parens": 1,                    // require parens in arrow function arguments
     "arrow-spacing": 1,                   // require space before/after arrow function's arrow (fixable)
     "constructor-super": 1,               // verify calls of super() in constructors
     "generator-star-spacing": 0,          // enforce spacing around the * in generator functions (fixable)

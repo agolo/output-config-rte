@@ -1,28 +1,18 @@
 /* @flow */
 
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import IconButton from './IconButton';
 import InputPopover from './InputPopover';
 import autobind from 'class-autobind';
 
-type Props = {
-  iconName: string;
-  showPopover: boolean,
-  defaultValue?: string,
-  onTogglePopover: Function,
-  onSubmit: Function;
-};
-
 export default class PopoverIconButton extends Component {
-  props: Props;
-
   constructor() {
     super(...arguments);
     autobind(this);
   }
 
   render() {
-    let {onTogglePopover, showPopover, ...props} = this.props; // eslint-disable-line no-unused-vars
+    let { onTogglePopover, showPopover, ...props } = this.props; // eslint-disable-line no-unused-vars
     return (
       <IconButton {...props} onClick={onTogglePopover}>
         {this._renderPopover()}
@@ -38,13 +28,20 @@ export default class PopoverIconButton extends Component {
       <InputPopover
         defaultValue={this.props.defaultValue}
         onSubmit={this._onSubmit}
-        onCancel={this._hidePopover}
+        onCancel={this._resetState}
       />
     );
   }
 
   _onSubmit() {
     this.props.onSubmit(...arguments);
+  }
+
+  _resetState(ev) {
+    if (ev.target.className.includes('icon-cancel')) {
+      this._onSubmit('');
+    }
+    this._hidePopover();
   }
 
   _hidePopover() {

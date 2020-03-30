@@ -2,7 +2,7 @@
   position: absolute;
   top: calc(100% + 5px);
   left: 0;
-  width: 260px;
+  width: 400px;
   background: none #fdfdfd;
   background: linear-gradient(to bottom, #fdfdfd 0%,#f6f7f8 100%);
   border: 1px solid #999;

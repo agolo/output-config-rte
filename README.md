@@ -1,4 +1,6 @@
-# React Rich Text Editor
+# Agolo Output Config React Rich Text Editor
+
+## Docs will be updated soon!
 
 ![Build Status](https://travis-ci.org/sstur/react-rte.svg?branch=master)
 
