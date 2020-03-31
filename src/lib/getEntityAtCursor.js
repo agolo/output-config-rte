@@ -1,4 +1,4 @@
-/* @flow */
+
 function getEntityAtOffset(block, offset) {
   let entityKey = block.getEntityAt(offset);
   if (entityKey == null) {

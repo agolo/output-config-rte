@@ -1,4 +1,4 @@
-/* @flow */
+
 
 import autobind from 'class-autobind';
 import cx from 'classnames';

@@ -1,5 +1,5 @@
-/* @flow */
 import React, { Component } from 'react';
+import { Modifier, EditorState } from 'draft-js';
 import RichTextEditor, {
   createFromState,
   createValueFromString
@@ -8,7 +8,6 @@ import autobind from 'class-autobind';
 
 import ButtonGroup from './ui/ButtonGroup';
 import Dropdown from './ui/Dropdown';
-import { Modifier, EditorState } from 'draft-js';
 
 import styles from './editorDemo.css';
 

@@ -1,4 +1,4 @@
-/* @flow */
+
 
 import { ContentBlock, EditorState, genKey } from 'draft-js';
 

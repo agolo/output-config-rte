@@ -1,4 +1,4 @@
-/* @flow */
+
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import IconButton from './IconButton';

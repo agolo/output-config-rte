@@ -1,4 +1,4 @@
-/* @flow */
+
 
 import { BLOCK_TYPE } from 'draft-js-utils';
 

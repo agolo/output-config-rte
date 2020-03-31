@@ -1,30 +1,18 @@
-/* @flow */
-import React, {Component} from 'react';
-import RichTextEditor, {createEmptyValue} from './RichTextEditor';
+import React, { Component } from 'react';
+import RichTextEditor, { createEmptyValue } from './RichTextEditor';
 import autobind from 'class-autobind';
 
-import type {EditorValue} from './RichTextEditor';
-
-type Props = {
-  value: string;
-  format: string;
-  onChange: (value: string) => any;
-};
-type State = {
-  editorValue: EditorValue;
-};
-
 export default class SimpleRichTextEditor extends Component {
-  props: Props;
-  state: State;
+  props;
+  state;
   // The [format, value] of what's currently displayed in the <RichTextEditor />
-  _currentValue: ?[string, string];
+  _currentValue;
 
   constructor() {
     super(...arguments);
     autobind(this);
     this.state = {
-      editorValue: createEmptyValue(),
+      editorValue: createEmptyValue()
     };
   }
 
@@ -32,27 +20,27 @@ export default class SimpleRichTextEditor extends Component {
     this._updateStateFromProps(this.props);
   }
 
-  componentWillReceiveProps(newProps: Props) {
+  componentWillReceiveProps(newProps) {
     this._updateStateFromProps(newProps);
   }
 
-  _updateStateFromProps(newProps: Props) {
-    let {value, format} = newProps;
+  _updateStateFromProps(newProps) {
+    let { value, format } = newProps;
     if (this._currentValue != null) {
       let [currentFormat, currentValue] = this._currentValue;
       if (format === currentFormat && value === currentValue) {
         return;
       }
     }
-    let {editorValue} = this.state;
+    let { editorValue } = this.state;
     this.setState({
-      editorValue: editorValue.setContentFromString(value, format),
+      editorValue: editorValue.setContentFromString(value, format)
     });
     this._currentValue = [format, value];
   }
 
   render() {
-    let {value, format, onChange, ...otherProps} = this.props; // eslint-disable-line no-unused-vars
+    let { value, format, onChange, ...otherProps } = this.props; // eslint-disable-line no-unused-vars
     return (
       <RichTextEditor
         {...otherProps}
@@ -62,11 +50,13 @@ export default class SimpleRichTextEditor extends Component {
     );
   }
 
-  _onChange(editorValue: EditorValue) {
-    let {format, onChange} = this.props;
+  _onChange(editorValue) {
+    let { format, onChange } = this.props;
     let oldEditorValue = this.state.editorValue;
-    this.setState({editorValue});
-    let oldContentState = oldEditorValue ? oldEditorValue.getEditorState().getCurrentContent() : null;
+    this.setState({ editorValue });
+    let oldContentState = oldEditorValue
+      ? oldEditorValue.getEditorState().getCurrentContent()
+      : null;
     let newContentState = editorValue.getEditorState().getCurrentContent();
     if (oldContentState !== newContentState) {
       let stringValue = editorValue.toString(format);

@@ -1,6 +1,6 @@
 {
   "name": "@agolo/output-config-rte",
-  "version": "0.17.2",
+  "version": "0.17.7",
   "description": "Agolo's output config React Rich Text Editor",
   "main": "./lib/index.js",
   "files": [
@@ -10,7 +10,7 @@
   "scripts": {
     "build": "npm run build-lib && npm run build-dist",
     "build-dist": "rimraf dist && webpack -p",
-    "build-lib": "rimraf lib && babel src --ignore \"_*\" --out-dir lib --copy-files",
+    "build-lib": "rimraf lib && babel src --out-dir lib --ignore \"src/**/*.spec.js\",\"src/**/*.test.js\" --presets=es2015,react,stage-2",
     "lint": "eslint --max-warnings 0 .",
     "typecheck": "flow",
     "prepublish": "npm run build",

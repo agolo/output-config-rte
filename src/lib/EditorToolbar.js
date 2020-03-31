@@ -1,4 +1,4 @@
-/* @flow */
+
 import { hasCommandModifier } from 'draft-js/lib/KeyBindingUtil';
 
 import React, { Component } from 'react';

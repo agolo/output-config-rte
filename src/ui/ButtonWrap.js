@@ -1,4 +1,4 @@
-/* @flow */
+
 
 import React from 'react';
 import cx from 'classnames';
@@ -9,7 +9,7 @@ type Props = {
   className?: string;
 };
 
-export default function ButtonWrap(props: Props) {
+export default function ButtonWrap(props) {
   let className = cx(props.className, styles.root);
   return <div {...props} className={className} />;
 }
