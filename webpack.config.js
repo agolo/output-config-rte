@@ -33,10 +33,10 @@ var rules = [
 ];
 
 module.exports = [{
-  entry: './src/RichTextEditor.js',
+  entry: './src/index.js',
   output: {
-    path: path.join(__dirname, 'dist'),
-    filename: 'react-rte.js',
+    path: path.join(__dirname, 'lib'),
+    filename: 'agolo-rte.js',
     libraryTarget: 'commonjs2',
   },
   externals: {

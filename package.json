@@ -1,8 +1,8 @@
 {
   "name": "@agolo/output-config-rte",
-  "version": "0.17.7",
+  "version": "0.17.8",
   "description": "Agolo's output config React Rich Text Editor",
-  "main": "./lib/index.js",
+  "main": "./lib/agolo-rte.js",
   "files": [
     "lib",
     "dist"
