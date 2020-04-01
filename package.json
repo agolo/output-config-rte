@@ -1,6 +1,6 @@
 {
   "name": "@agolo/output-config-rte",
-  "version": "0.17.8",
+  "version": "0.18.0",
   "description": "Agolo's output config React Rich Text Editor",
   "main": "./lib/agolo-rte.js",
   "files": [
@@ -52,7 +52,7 @@
     "eslint-plugin-react": "^6.5.0",
     "expect": "^1.20.2",
     "flow-bin": "^0.32.0",
-    "mocha": "^3.1.2",
+    "mocha": "^7.1.1",
     "raw-loader": "^0.5.1",
     "react": "16.x.x",
     "react-dom": "16.x.x",
@@ -74,7 +74,7 @@
     "richtext",
     "editor"
   ],
-  "author": "sstur@me.com",
+  "author": "ahmed.elhady@agolo.com",
   "contributors": [
     "Ahmed Elhady (https://github.com/agoloahmedelhady)"
   ],
