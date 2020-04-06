@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Modifier, EditorState } from 'draft-js';
 import RichTextEditor, {
   createFromState,
-  createValueFromString
+  createValueFromString,
 } from './RichTextEditor';
 import autobind from 'class-autobind';
 
@@ -18,7 +19,7 @@ export default class EditorDemo extends Component {
     this.state = {
       value: createValueFromString(this.props.htmlTemplate, 'html'),
       format: 'html',
-      readOnly: false
+      readOnly: false,
     };
   }
 
@@ -26,7 +27,7 @@ export default class EditorDemo extends Component {
     this.focusEditor();
   }
 
-  setEditor = editor => {
+  setEditor = (editor) => {
     this.editor = editor;
   };
 
@@ -59,13 +60,16 @@ export default class EditorDemo extends Component {
 
   render() {
     let { value, format } = this.state;
-    let { sampleStory, availableFields } = this.props;
+    let { sampleStory, availableFields, onChangeCallback } = this.props;
     return (
       <div style={{ display: 'flex' }} className="editor-demo">
         <div className="row" style={{ width: '50%' }}>
           <RichTextEditor
             value={value}
-            onChange={this._onChange}
+            onChange={(newValue) => {
+              this._onChange(newValue);
+              onChangeCallback();
+            }}
             className="react-rte-demo"
             toolbarClassName="demo-toolbar"
             editorClassName="demo-editor"
@@ -75,14 +79,14 @@ export default class EditorDemo extends Component {
               (setValue, getValue, editorState) => {
                 let choices = new Map([
                   ['add', { label: 'Add New Field' }],
-                  ...availableFields.map(field => [field, { label: field }])
+                  ...availableFields.map((field) => [field, { label: field }]),
                 ]);
                 return (
                   <ButtonGroup key={1}>
                     <Dropdown
                       choices={choices}
                       selectedKey={getValue('my-control-name')}
-                      onChange={value => {
+                      onChange={(value) => {
                         setValue('my-control-name', value);
                         this.setState({
                           value:
@@ -95,14 +99,14 @@ export default class EditorDemo extends Component {
                                 )
                               : createFromState(
                                   this.insertText(` ${value} `, editorState)
-                                )
+                                ),
                         });
                         this.focusEditor();
                       }}
                     />
                   </ButtonGroup>
                 );
-              }
+              },
             ]}
           />
         </div>
@@ -123,7 +127,7 @@ export default class EditorDemo extends Component {
                 __html: this.props.replaceFieldsWithSampleData(
                   value.toString(format),
                   sampleStory
-                )
+                ),
               }}
             />
           </div>
@@ -148,7 +152,7 @@ export default class EditorDemo extends Component {
     let source = event.target.value;
     let oldValue = this.state.value;
     this.setState({
-      value: oldValue.setContentFromString(source, this.state.format)
+      value: oldValue.setContentFromString(source, this.state.format),
     });
   }
 
@@ -160,3 +164,21 @@ export default class EditorDemo extends Component {
     this.setState({ readOnly: event.target.checked });
   }
 }
+
+EditorDemo.propTypes = {
+  sampleStory: PropTypes.object,
+  availableFields: PropTypes.array,
+  replaceFieldsWithSampleData: PropTypes.func,
+  sampleStoryUrl: PropTypes.string,
+  htmlTemplate: PropTypes.string,
+  onChangeCallback: PropTypes.func,
+};
+
+EditorDemo.defaultProps = {
+  sampleStory: {},
+  availableFields: [],
+  replaceFieldsWithSampleData: () => {},
+  sampleStoryUrl: '',
+  htmlTemplate: '',
+  onChangeCallback: () => {},
+};

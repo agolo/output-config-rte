@@ -6,7 +6,7 @@ import {
   availableFields,
   replaceFieldsWithSampleData,
   sampleStoryUrl,
-  htmlTemplate
+  htmlTemplate,
 } from './constants';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -19,6 +19,9 @@ document.addEventListener('DOMContentLoaded', () => {
       htmlTemplate={htmlTemplate}
       sampleStoryUrl={sampleStoryUrl}
       replaceFieldsWithSampleData={replaceFieldsWithSampleData}
+      onChangeCallback={() => {
+        console.log('hadi');
+      }}
     />,
     rootNode
   );
