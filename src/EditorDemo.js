@@ -62,8 +62,8 @@ export default class EditorDemo extends Component {
     let { value, format } = this.state;
     let { sampleStory, availableFields, onChangeCallback } = this.props;
     return (
-      <div style={{ display: 'flex' }} className="editor-demo">
-        <div className="row" style={{ width: '50%' }}>
+      <div style={{ display: 'flex', justifyContent: 'space-around' }} className="editor-demo">
+        <div className="row" style={{ maxWidth: '50%' }}>
           <RichTextEditor
             value={value}
             onChange={(newValue) => {
@@ -110,7 +110,7 @@ export default class EditorDemo extends Component {
             ]}
           />
         </div>
-        <div className="row" style={{ width: '50%' }}>
+        <div className="row" style={{ maxWidth: '50%' }}>
           <div className={styles.root}>
             <p>
               Sample Output from a single{' '}
