@@ -61,14 +61,16 @@ export default class EditorDemo extends Component {
   render() {
     let { value, format } = this.state;
     let { sampleStory, availableFields, onChangeCallback } = this.props;
+    console.log('onChangeCallback: ', onChangeCallback);
     return (
       <div style={{ display: 'flex', justifyContent: 'space-around' }} className="editor-demo">
         <div className="row" style={{ maxWidth: '50%' }}>
           <RichTextEditor
             value={value}
             onChange={(newValue) => {
+              console.log('newValue: ', newValue);
               this._onChange(newValue);
-              onChangeCallback();
+              onChangeCallback(newValue.toString(format));
             }}
             className="react-rte-demo"
             toolbarClassName="demo-toolbar"

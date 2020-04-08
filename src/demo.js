@@ -19,8 +19,8 @@ document.addEventListener('DOMContentLoaded', () => {
       htmlTemplate={htmlTemplate}
       sampleStoryUrl={sampleStoryUrl}
       replaceFieldsWithSampleData={replaceFieldsWithSampleData}
-      onChangeCallback={() => {
-        console.log('hadi');
+      onChangeCallback={(params) => {
+        console.log(params);
       }}
     />,
     rootNode

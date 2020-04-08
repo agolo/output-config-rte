@@ -10,6 +10,7 @@ export default class EditorDemoExample extends Component {
         replaceFieldsWithSampleData={this.props.replaceFieldsWithSampleData}
         htmlTemplate={this.props.htmlTemplate}
         sampleStoryUrl={this.props.sampleStoryUrl}
+        onChangeCallback={this.props.onChangeCallback}
       />
     );
   }
