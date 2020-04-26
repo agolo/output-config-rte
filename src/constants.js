@@ -9,7 +9,7 @@ export const sampleStory = {
     "Advocates like her in all 50 states are getting a new tool to help identify legislation like the Amazon bill that affect the public’s right to know — and give a glimpse of what's happening across the country.",
     'The National Freedom of Information Coalition is launching a bill tracker that aims to find, in real-time, all pieces of legislation that affect government transparency in state legislatures.',
     'Daniel Bevarly, the coalition’s executive director, said tracking such bills is challenging because only a few states, such as Florida and Maine, require such legislation to state up-front that they would affect government transparency.',
-    'The program uses software from Quorum, a Washington D. C.-based technology company, that scrapes the raw text of bills from all 50 state legislative websites once or more a day.'
+    'The program uses software from Quorum, a Washington D. C.-based technology company, that scrapes the raw text of bills from all 50 state legislative websites once or more a day.',
   ],
   articles: [
     {
@@ -18,25 +18,23 @@ export const sampleStory = {
       articleUrl:
         'https://www.ksat.com/news/politics/2020/03/10/legislative-tracker-sounds-alarm-on-anti-transparency-bills/',
       articleDate: 'March 15, 2020',
-      articleSource: 'KSAT'
+      articleSource: 'KSAT',
     },
     {
-      articleTitle:
-        'Reuters Legislative Tracker',
+      articleTitle: 'Reuters Legislative Tracker',
       articleUrl:
         'https://www.reuters.com/news/politics/2020/03/10/legislative-tracker-sounds-alarm-on-anti-transparency-bills/',
       articleDate: 'March 16, 2020',
-      articleSource: 'Reuters'
+      articleSource: 'Reuters',
     },
     {
-      articleTitle:
-        'AP Legislative Tracker',
+      articleTitle: 'AP Legislative Tracker',
       articleUrl:
         'https://www.ap.com/news/politics/2020/03/10/legislative-tracker-sounds-alarm-on-anti-transparency-bills/',
       articleDate: 'March 18, 2020',
-      articleSource: 'AP'
-    }
-  ]
+      articleSource: 'AP',
+    },
+  ],
 };
 
 export const availableFields = [

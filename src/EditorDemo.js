@@ -61,7 +61,7 @@ export default class EditorDemo extends Component {
   render() {
     let { value, format } = this.state;
     let { sampleStory, availableFields, onChangeCallback } = this.props;
-    console.log('onChangeCallback: ', onChangeCallback);
+    console.log('sampleStory: ', sampleStory);
     return (
       <div style={{ display: 'flex', justifyContent: 'space-around' }} className="editor-demo">
         <div className="row" style={{ maxWidth: '50%' }}>
